@@ -1,0 +1,214 @@
+2026-06-07 16:42:59 [error]: Database query error {"query":"SELECT * FROM users WHERE email = $1","error":"password authentication failed for user \"buildmaster\""}
+2026-06-07 16:42:59 [error]: error: password authentication failed for user "buildmaster"
+    at C:\Users\gopiv\construction-erp\backend\node_modules\pg-pool\index.js:45:11
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at query (C:\Users\gopiv\construction-erp\backend\src\config\database.ts:36:20)
+    at C:\Users\gopiv\construction-erp\backend\src\controllers\auth.controller.ts:95:18 {"error":"password authentication failed for user \"buildmaster\""}
+2026-06-07 16:45:06 [error]: Database query error {"query":"SELECT * FROM users WHERE email = $1","error":"password authentication failed for user \"buildmaster\""}
+2026-06-07 16:45:06 [error]: error: password authentication failed for user "buildmaster"
+    at C:\Users\gopiv\construction-erp\backend\node_modules\pg-pool\index.js:45:11
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at query (C:\Users\gopiv\construction-erp\backend\src\config\database.ts:36:20)
+    at C:\Users\gopiv\construction-erp\backend\src\controllers\auth.controller.ts:95:18 {"error":"password authentication failed for user \"buildmaster\""}
+2026-06-07 16:52:52 [error]: Database query error {"query":"SELECT NOW()","error":"password authentication failed for user \"buildmaster\""}
+2026-06-07 16:52:52 [error]: Database connection failed {"error":"password authentication failed for user \"buildmaster\""}
+2026-06-07 16:52:52 [warn]: Starting server without database connection
+2026-06-07 16:52:52 [info]: BuildMaster ERP API running on port 5000 {"environment":"development","port":5000}
+2026-06-12 23:34:47 [error]: Database query error {"query":"SELECT NOW()","error":"password authentication failed for user \"buildmaster\""}
+2026-06-12 23:34:47 [error]: Database connection failed {"error":"password authentication failed for user \"buildmaster\""}
+2026-06-12 23:34:47 [warn]: Starting server without database connection
+2026-06-12 23:34:47 [info]: BuildMaster ERP API running on port 5000 {"environment":"development","port":5000}
+2026-06-14 11:27:43 [error]: Database query error {"query":"SELECT NOW()","error":"password authentication failed for user \"buildmaster\""}
+2026-06-14 11:27:43 [error]: Database connection failed {"error":"password authentication failed for user \"buildmaster\""}
+2026-06-14 11:27:43 [warn]: Starting server without database connection
+2026-06-14 11:27:43 [info]: BuildMaster ERP API running on port 5000 {"environment":"development","port":5000}
+2026-06-14 11:33:43 [error]: Database query error {"query":"SELECT NOW()","error":"password authentication failed for user \"buildmaster\""}
+2026-06-14 17:08:56 [info]: Starting database setup...
+2026-06-14 17:08:56 [info]: Reading schema from C:\Users\gopiv\Downloads\construction-erp\database\schema.sql
+2026-06-14 17:08:56 [info]: Reading seed from C:\Users\gopiv\Downloads\construction-erp\database\seed.sql
+2026-06-14 17:08:56 [info]: Executing schema.sql...
+2026-06-14 17:08:56 [debug]: New database client connected
+2026-06-14 17:08:57 [info]: Executing services table creation...
+2026-06-14 17:08:57 [info]: Executing seed.sql...
+2026-06-14 17:08:57 [error]: error: invalid input syntax for type uuid: "g1000000-0000-0000-0000-000000000001"
+    at C:\Users\gopiv\Downloads\construction-erp\backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at setupDatabase (c:\Users\gopiv\Downloads\construction-erp\backend\src\scripts\setup-db.ts:44:5) {"length":137,"name":"error","severity":"ERROR","code":"22P02","position":"5221","file":"uuid.c","line":"177","routine":"string_to_uuid"}
+2026-06-14 17:09:28 [info]: Starting database setup...
+2026-06-14 17:09:28 [info]: Reading schema from C:\Users\gopiv\Downloads\construction-erp\database\schema.sql
+2026-06-14 17:09:28 [info]: Reading seed from C:\Users\gopiv\Downloads\construction-erp\database\seed.sql
+2026-06-14 17:09:28 [info]: Executing schema.sql...
+2026-06-14 17:09:28 [debug]: New database client connected
+2026-06-14 17:09:28 [error]: error: type "user_role" already exists
+    at C:\Users\gopiv\Downloads\construction-erp\backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at setupDatabase (c:\Users\gopiv\Downloads\construction-erp\backend\src\scripts\setup-db.ts:38:5) {"length":89,"name":"error","severity":"ERROR","code":"42710","file":"typecmds.c","line":"1213","routine":"DefineEnum"}
+2026-06-14 17:10:15 [info]: Starting database setup...
+2026-06-14 17:10:15 [info]: Reading schema from C:\Users\gopiv\Downloads\construction-erp\database\schema.sql
+2026-06-14 17:10:15 [info]: Reading seed from C:\Users\gopiv\Downloads\construction-erp\database\seed.sql
+2026-06-14 17:10:15 [info]: Executing seed.sql...
+2026-06-14 17:10:15 [debug]: New database client connected
+2026-06-14 17:10:15 [info]: Database setup completed successfully!
+2026-06-14 17:53:51 [info]: Starting database initialization...
+2026-06-14 17:53:51 [info]: Reading schema from C:\Users\gopiv\Downloads\construction-erp\database\schema.sql
+2026-06-14 17:53:51 [info]: Executing schema.sql...
+2026-06-14 17:53:51 [debug]: New database client connected
+2026-06-14 17:53:51 [info]: Schema applied successfully.
+2026-06-14 17:56:58 [info]: Starting user password seed...
+2026-06-14 17:56:59 [debug]: New database client connected
+2026-06-14 17:56:59 [error]: Database query error {"query":"INSERT INTO users (email, password_hash, first_name, last_name, phone, role, branch_id, is_verified, is_active)\n         VALUES ($1, $2, $3, $4, $5, $6, $7, true, true)","error":"insert or update on table \"users\" violates foreign key constraint \"users_branch_id_fkey\""}
+2026-06-14 17:57:41 [info]: Starting database initialization...
+2026-06-14 17:57:41 [info]: Reading seed from C:\Users\gopiv\Downloads\construction-erp\database\seed.sql
+2026-06-14 17:57:41 [info]: Executing seed.sql...
+2026-06-14 17:57:41 [debug]: New database client connected
+2026-06-14 17:57:41 [error]: Database query error {"query":"-- BuildMaster ERP - Seed Data\n\nINSERT INTO branches (id, name, code, address, city, state, pincode, phone, email) VALUES\n('a1000000-0000-0000-0000-000000000001', 'Head Office', 'HO-001', '123 Constru","error":"invalid input syntax for type uuid: \"g1000000-0000-0000-0000-000000000001\""}
+2026-06-14 18:01:35 [info]: Starting database initialization...
+2026-06-14 18:01:35 [info]: Reading seed from C:\Users\gopiv\Downloads\construction-erp\database\seed.sql
+2026-06-14 18:01:35 [info]: Executing seed.sql...
+2026-06-14 18:01:35 [debug]: New database client connected
+2026-06-14 18:01:35 [info]: Seed applied successfully.
+2026-06-14 18:08:09 [debug]: New database client connected
+2026-06-14 18:08:09 [info]: Database connection established
+2026-06-14 18:08:09 [info]: BuildMaster ERP API running on port 5000 {"environment":"development","port":5000}
+2026-06-14 18:11:44 [debug]: New database client connected
+2026-06-14 18:13:50 [debug]: New database client connected
+2026-06-14 18:17:23 [info]: Starting user password seed...
+2026-06-14 18:17:24 [debug]: New database client connected
+2026-06-14 18:17:24 [info]: Updated password for admin@buildmaster.com
+2026-06-14 18:17:24 [info]: Updated password for pm@buildmaster.com
+2026-06-14 18:17:24 [info]: Updated password for material@buildmaster.com
+2026-06-14 18:17:24 [info]: Updated password for supplier@buildmaster.com
+2026-06-14 18:17:24 [info]: Updated password for customer@buildmaster.com
+2026-06-14 18:17:24 [info]: Seed completed successfully
+2026-06-14 18:17:24 [info]: Default password for all seed users: BuildMaster@123
+2026-06-14 18:21:31 [debug]: New database client connected
+2026-06-14 18:24:20 [debug]: New database client connected
+2026-06-14 18:26:20 [debug]: New database client connected
+2026-06-14 18:26:53 [debug]: New database client connected
+2026-06-14 18:28:18 [debug]: New database client connected
+2026-06-14 18:28:49 [debug]: New database client connected
+2026-06-14 18:29:23 [debug]: New database client connected
+2026-06-14 18:29:23 [debug]: New database client connected
+2026-06-14 18:29:23 [debug]: New database client connected
+2026-06-14 18:29:23 [debug]: New database client connected
+2026-06-14 18:32:18 [debug]: New database client connected
+2026-06-14 18:32:53 [debug]: New database client connected
+2026-06-14 18:33:20 [debug]: New database client connected
+2026-06-14 18:33:20 [debug]: New database client connected
+2026-06-14 18:49:53 [debug]: New database client connected
+2026-06-14 18:49:53 [info]: Database connection established
+2026-06-14 18:49:53 [info]: BuildMaster ERP API running on port 5000 {"environment":"development","port":5000}
+2026-06-14 18:50:04 [debug]: New database client connected
+2026-06-14 18:50:04 [info]: Database connection established
+2026-06-14 18:50:04 [info]: BuildMaster ERP API running on port 5000 {"environment":"development","port":5000}
+2026-06-14 19:21:48 [debug]: New database client connected
+2026-06-14 19:21:48 [info]: Database connection established
+2026-06-14 19:21:48 [info]: BuildMaster ERP API running on port 5000 {"environment":"development","port":5000}
+2026-06-14 19:27:14 [debug]: New database client connected
+2026-06-14 19:28:50 [debug]: New database client connected
+2026-06-14 19:33:51 [debug]: New database client connected
+2026-06-14 19:33:51 [error]: Database query error {"query":"SELECT id, email, first_name, last_name, role, branch_id, is_active FROM users WHERE id = $1","error":"column \"branch_id\" does not exist"}
+2026-06-14 19:33:51 [error]: error: column "branch_id" does not exist
+    at C:\Users\gopiv\Downloads\construction-erp\backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at query (c:\Users\gopiv\Downloads\construction-erp\backend\src\config\database.ts:36:20)
+    at JwtStrategy._verify (c:\Users\gopiv\Downloads\construction-erp\backend\src\config\passport.ts:20:22) {"error":"column \"branch_id\" does not exist"}
+2026-06-14 19:34:14 [debug]: New database client connected
+2026-06-14 19:34:14 [info]: Database connection established
+2026-06-14 19:34:14 [info]: BuildMaster ERP API running on port 5000 {"environment":"development","port":5000}
+2026-06-14 19:34:14 [debug]: New database client connected
+2026-06-14 19:34:14 [info]: Database connection established
+2026-06-14 19:34:22 [debug]: New database client connected
+2026-06-14 19:34:22 [info]: Database connection established
+2026-06-14 19:34:22 [info]: BuildMaster ERP API running on port 5000 {"environment":"development","port":5000}
+2026-06-14 19:34:22 [debug]: New database client connected
+2026-06-14 19:34:22 [info]: Database connection established
+2026-06-14 19:35:21 [debug]: New database client connected
+2026-06-14 19:35:21 [info]: Database connection established
+2026-06-14 19:35:21 [info]: BuildMaster ERP API running on port 5000 {"environment":"development","port":5000}
+2026-06-14 19:35:38 [debug]: New database client connected
+2026-06-14 19:35:38 [info]: Database connection established
+2026-06-14 19:35:38 [info]: BuildMaster ERP API running on port 5000 {"environment":"development","port":5000}
+2026-06-14 19:35:58 [debug]: New database client connected
+2026-06-14 19:35:58 [info]: Database connection established
+2026-06-14 19:35:58 [info]: BuildMaster ERP API running on port 5000 {"environment":"development","port":5000}
+2026-06-14 19:36:23 [error]: Database query error {"query":"INSERT INTO materials (sku, name, category_id, unit, quantity, min_stock_level, cost_price, selling_price, supplier_id, warehouse_id, barcode, description)\n     VALUES ($1, $2, $3, $4, $5, $6, $7, $8,","error":"column \"supplier_id\" of relation \"materials\" does not exist"}
+2026-06-14 19:36:23 [error]: error: column "supplier_id" of relation "materials" does not exist
+    at C:\Users\gopiv\Downloads\construction-erp\backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at query (c:\Users\gopiv\Downloads\construction-erp\backend\src\config\database.ts:36:20)
+    at <anonymous> (c:\Users\gopiv\Downloads\construction-erp\backend\src\controllers\materials.controller.ts:76:18) {"error":"column \"supplier_id\" of relation \"materials\" does not exist"}
+2026-06-15 10:28:08 [debug]: New database client connected
+2026-06-15 10:28:08 [info]: Database connection established
+2026-06-15 10:28:08 [info]: BuildMaster ERP API running on port 5000 {"environment":"development","port":5000}
+2026-06-15 10:29:47 [debug]: New database client connected
+2026-06-15 10:29:47 [error]: Database query error {"query":"SELECT m.*, mc.name AS category_name, s.company_name AS supplier_name\n     FROM materials m\n     LEFT JOIN material_categories mc ON m.category_id = mc.id\n     LEFT JOIN suppliers s ON m.supplier_id =","error":"relation \"suppliers\" does not exist"}
+2026-06-15 10:29:47 [error]: error: relation "suppliers" does not exist
+    at C:\Users\gopiv\Downloads\construction-erp\backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at query (c:\Users\gopiv\Downloads\construction-erp\backend\src\config\database.ts:36:20)
+    at <anonymous> (c:\Users\gopiv\Downloads\construction-erp\backend\src\controllers\materials.controller.ts:30:18) {"error":"relation \"suppliers\" does not exist"}
+2026-06-15 10:33:35 [debug]: New database client connected
+2026-06-15 10:33:35 [info]: Database connection established
+2026-06-15 10:33:35 [info]: BuildMaster ERP API running on port 5000 {"environment":"development","port":5000}
+2026-06-15 10:34:00 [debug]: New database client connected
+2026-06-15 10:34:00 [info]: Database connection established
+2026-06-15 10:34:00 [info]: BuildMaster ERP API running on port 5000 {"environment":"development","port":5000}
+2026-06-15 10:36:00 [debug]: New database client connected
+2026-06-15 10:36:00 [debug]: New database client connected
+2026-06-15 10:36:00 [debug]: New database client connected
+2026-06-15 10:36:00 [debug]: New database client connected
+2026-06-15 10:36:00 [debug]: New database client connected
+2026-06-15 10:36:31 [debug]: New database client connected
+2026-06-15 10:36:31 [debug]: New database client connected
+2026-06-15 10:36:31 [debug]: New database client connected
+2026-06-15 10:36:31 [debug]: New database client connected
+2026-06-15 10:36:31 [debug]: New database client connected
+2026-06-15 10:37:41 [debug]: New database client connected
+2026-06-15 10:37:41 [debug]: New database client connected
+2026-06-15 10:37:41 [debug]: New database client connected
+2026-06-15 10:37:41 [debug]: New database client connected
+2026-06-15 10:37:41 [debug]: New database client connected
+2026-06-15 10:39:39 [debug]: New database client connected
+2026-06-15 10:39:39 [debug]: New database client connected
+2026-06-15 10:39:39 [debug]: New database client connected
+2026-06-15 10:39:39 [debug]: New database client connected
+2026-06-15 10:39:39 [debug]: New database client connected
+2026-06-15 10:42:09 [debug]: New database client connected
+2026-06-15 10:46:51 [debug]: New database client connected
+2026-06-15 10:47:04 [debug]: New database client connected
+2026-06-15 10:47:04 [info]: Database connection established
+2026-06-15 10:47:04 [info]: BuildMaster ERP API running on port 5000 {"environment":"development","port":5000}
+2026-06-15 10:51:26 [debug]: New database client connected
+2026-06-15 10:51:26 [debug]: New database client connected
+2026-06-15 10:52:13 [debug]: New database client connected
+2026-06-15 10:52:14 [info]: Database connection established
+2026-06-15 10:52:14 [info]: BuildMaster ERP API running on port 5000 {"environment":"development","port":5000}
+2026-06-15 10:54:05 [debug]: New database client connected
+2026-06-15 11:00:50 [debug]: New database client connected
+2026-06-15 11:06:17 [debug]: New database client connected
+2026-06-15 11:26:18 [debug]: New database client connected
+2026-06-15 11:26:18 [info]: Database connection established
+2026-06-15 11:26:18 [info]: BuildMaster ERP API running on port 5000 {"environment":"development","port":5000}
+2026-06-15 11:26:48 [debug]: New database client connected
+2026-06-15 11:26:48 [debug]: New database client connected
+2026-06-15 11:26:50 [debug]: New database client connected
+2026-06-15 11:26:50 [debug]: New database client connected
+2026-06-15 11:26:50 [debug]: New database client connected
+2026-06-15 11:26:50 [debug]: New database client connected
+2026-06-15 11:26:50 [debug]: New database client connected
+2026-06-15 11:27:46 [debug]: New database client connected
+2026-06-15 11:27:46 [debug]: New database client connected
+2026-06-15 11:27:46 [debug]: New database client connected
+2026-06-15 11:27:46 [debug]: New database client connected
+2026-06-15 11:27:46 [debug]: New database client connected
+2026-06-15 11:28:24 [debug]: New database client connected
+2026-06-15 11:28:24 [debug]: New database client connected
+2026-06-15 11:28:24 [debug]: New database client connected
+2026-06-15 11:28:24 [debug]: New database client connected
+2026-06-15 11:28:24 [debug]: New database client connected
+2026-06-15 11:29:39 [debug]: New database client connected
+2026-06-15 11:29:39 [debug]: New database client connected
+2026-06-15 11:29:39 [debug]: New database client connected
+2026-06-15 11:29:39 [debug]: New database client connected
+2026-06-15 11:29:39 [debug]: New database client connected

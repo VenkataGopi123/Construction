@@ -1,0 +1,9 @@
+import { Request, Response } from 'express';
+export declare const listCustomers: (req: Request, res: Response, next: import("express").NextFunction) => void;
+export declare const getCustomer: (req: Request, res: Response, next: import("express").NextFunction) => void;
+export declare const createCustomer: (req: Request, res: Response, next: import("express").NextFunction) => void;
+export declare const updateCustomer: (req: Request, res: Response, next: import("express").NextFunction) => void;
+export declare const deleteCustomer: (req: Request, res: Response, next: import("express").NextFunction) => void;
+export declare const listLeads: (req: Request, res: Response, next: import("express").NextFunction) => void;
+export declare const createLead: (req: Request, res: Response, next: import("express").NextFunction) => void;
+//# sourceMappingURL=customers.controller.d.ts.map
