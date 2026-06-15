@@ -68,7 +68,7 @@ export default function EditProjectPage() {
   return (
     <div className="container mx-auto py-12 px-4 max-w-2xl">
       <Button variant="ghost" asChild className="mb-6 -ml-4 text-muted-foreground hover:text-foreground">
-        <Link href=`/projects/${id}`><ArrowLeft className="h-4 w-4 mr-2" /> Back</Link>
+        <Link href={`/projects/${id}`}><ArrowLeft className="h-4 w-4 mr-2" /> Back</Link>
       </Button>
 
       <Card>
