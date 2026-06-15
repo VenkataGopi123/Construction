@@ -10,7 +10,7 @@ import {
   DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useAuthStore } from "@/lib/auth-store";
-import { ROLE_LABELS } from "@/lib/constants";
+import { ROLE_LABELS, type Role } from "@/lib/constants";
 import { useRouter } from "next/navigation";
 
 interface DashboardHeaderProps {
@@ -68,7 +68,7 @@ export function DashboardHeader({ title, onMenuClick }: DashboardHeaderProps) {
               <div className="flex flex-col">
                 <span>{user?.name || "User"}</span>
                 <span className="text-xs font-normal text-muted-foreground">
-                  {user?.role ? ROLE_LABELS[user.role] : ""}
+                  {user?.role ? ROLE_LABELS[user.role as Role] : ""}
                 </span>
               </div>
             </DropdownMenuLabel>

@@ -45,7 +45,7 @@ export default function DashboardPage() {
   const materialData = materials.length > 0 ? materials.slice(0,5).map(m => ({
     name: m.name,
     used: m.stock || 0,
-    allocated: (m.stock || 0) + 10
+    total: (m.stock || 0) + 10
   })) : [];
 
   // Dummy revenue data just to not look empty if there are projects

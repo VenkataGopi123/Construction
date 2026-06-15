@@ -82,6 +82,7 @@ export const useDataStore = create<DataState>()((set, get) => ({
   services: [],
   projects: [],
   materials: [],
+  customers: [],
   team: [],
   isLoading: false,
   error: null,

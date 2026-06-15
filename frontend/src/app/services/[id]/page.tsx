@@ -47,9 +47,9 @@ export default function ServiceDetailsPage() {
 
       <div className="flex justify-between items-start mb-8">
         <div>
-          <h1 className="text-4xl font-bold mb-2">{item.title || item.name}</h1>
+          <h1 className="text-4xl font-bold mb-2">{item.title}</h1>
           <p className="text-xl text-muted-foreground">
-            {item.description || (item.type && `Type: ${item.type}`) || (item.stock !== undefined && `Stock: ${item.stock} ${item.unit}`)}
+            {item.description}
           </p>
         </div>
         
@@ -71,7 +71,7 @@ export default function ServiceDetailsPage() {
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 gap-4">
-            {Object.entries(item).filter(([k]) => k !== 'id' && k !== 'title' && k !== 'name' && k !== 'description' && k !== 'details').map(([key, val]) => (
+            {Object.entries(item).filter(([k]) => k !== 'id' && k !== 'title' && k !== 'description' && k !== 'details').map(([key, val]) => (
               <div key={key} className="p-4 border rounded-lg bg-muted/30">
                 <p className="text-sm text-muted-foreground capitalize">{key}</p>
                 <p className="font-semibold text-lg">{String(val)}</p>

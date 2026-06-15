@@ -26,7 +26,7 @@ export function DashboardSidebar({ collapsed = false }: DashboardSidebarProps) {
   const pathname = usePathname();
   const user = useAuthStore((s) => s.user);
   const role = (user?.role || "manager") as Role;
-  const items = NAV_ITEMS[role] || NAV_ITEMS.manager;
+  const items = (NAV_ITEMS as Record<string, any>)[role] || NAV_ITEMS.manager;
 
   return (
     <aside className={cn(
@@ -42,7 +42,7 @@ export function DashboardSidebar({ collapsed = false }: DashboardSidebarProps) {
         )}
       </div>
       <nav className="flex-1 overflow-y-auto p-3 space-y-1">
-        {items.map((item) => {
+        {items.map((item: any) => {
           const Icon = iconMap[item.icon] || LayoutDashboard;
           const isActive = pathname === item.href || pathname.startsWith(item.href + "/");
           return (

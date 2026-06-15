@@ -38,14 +38,14 @@ export default function PortalPage() {
           <div>
             <h2 className="text-xl font-semibold mb-4">Project Progress</h2>
             <div className="grid md:grid-cols-2 gap-4">
-              {(data.projects || []).map((p: { id: string; name: string; progress: number }) => (
+              {(data.projects || []).map((p: { id: string; name: string; progress?: number }) => (
                 <Card key={p.id}>
                   <CardContent className="pt-6 space-y-2">
                     <div className="flex justify-between">
                       <span className="font-medium">{p.name}</span>
-                      <span className="text-sm">{p.progress}%</span>
+                      <span className="text-sm">{p.progress || 0}%</span>
                     </div>
-                    <Progress value={p.progress} />
+                    <Progress value={p.progress || 0} />
                   </CardContent>
                 </Card>
               ))}
