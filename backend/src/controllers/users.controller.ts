@@ -4,7 +4,6 @@ import { query } from '../config/database';
 import { AppError, User } from '../types';
 import { parsePagination, buildPaginatedResponse, sanitizeUser } from '../utils/helpers';
 import { asyncHandler } from '../middleware/errorHandler';
-import { logAuditEntry } from '../middleware/audit';
 
 export const listUsers = asyncHandler(async (req: Request, res: Response) => {
   const pagination = parsePagination(req.query as { page?: string; limit?: string });
@@ -103,8 +102,6 @@ export const updateUser = asyncHandler(async (req: Request, res: Response) => {
     [first_name, last_name, phone, role, is_active, req.params.id]
   );
 
-  await logAuditEntry(req, 'UPDATE', 'user', req.params.id, existing.rows[0] as unknown as Record<string, unknown>, result.rows[0] as unknown as Record<string, unknown>);
-
   res.json({ success: true, data: result.rows[0] });
 });
 
@@ -119,7 +116,6 @@ export const deleteUser = asyncHandler(async (req: Request, res: Response) => {
   }
 
   await query('UPDATE users SET is_active = false WHERE id = $1', [req.params.id]);
-  await logAuditEntry(req, 'DELETE', 'user', req.params.id);
 
   res.json({ success: true, message: 'User deactivated successfully' });
 });

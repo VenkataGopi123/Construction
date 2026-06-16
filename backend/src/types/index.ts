@@ -1,9 +1,6 @@
 export type UserRole =
-  | 'super_admin'
-  | 'project_manager'
-  | 'material_manager'
-  | 'supplier'
-  | 'customer';
+  | 'admin'
+  | 'user';
 
 export type ProjectType =
   | 'residential'

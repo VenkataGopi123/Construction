@@ -25,8 +25,8 @@ interface DashboardSidebarProps {
 export function DashboardSidebar({ collapsed = false }: DashboardSidebarProps) {
   const pathname = usePathname();
   const user = useAuthStore((s) => s.user);
-  const role = (user?.role || "manager") as Role;
-  const items = (NAV_ITEMS as Record<string, any>)[role] || NAV_ITEMS.manager;
+  const role = (user?.role || "user") as Role;
+  const items = (NAV_ITEMS as Record<string, any>)[role] || NAV_ITEMS.user;
 
   return (
     <aside className={cn(

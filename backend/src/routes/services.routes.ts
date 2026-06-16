@@ -1,7 +1,6 @@
 import { Router } from 'express';
 import * as servicesController from '../controllers/services.controller';
 import { authenticate, authorize } from '../middleware/auth';
-import { auditLog } from '../middleware/audit';
 
 const router = Router();
 
@@ -12,8 +11,8 @@ router.get('/:id', servicesController.getService);
 // Admin-only routes for services
 router.use(authenticate);
 
-router.post('/', authorize('super_admin'), auditLog('CREATE', 'service'), servicesController.createService);
-router.put('/:id', authorize('super_admin'), auditLog('UPDATE', 'service'), servicesController.updateService);
-router.delete('/:id', authorize('super_admin'), auditLog('DELETE', 'service'), servicesController.deleteService);
+router.post('/', authorize('admin'), servicesController.createService);
+router.put('/:id', authorize('admin'), servicesController.updateService);
+router.delete('/:id', authorize('admin'), servicesController.deleteService);
 
 export default router;

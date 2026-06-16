@@ -28,30 +28,10 @@ export interface Material {
   description?: string;
 }
 
-export interface Customer {
-  id: string;
-  name: string;
-  email: string;
-  phone: string;
-  companyName?: string;
-}
-
-export interface TeamMember {
-  id: string;
-  name: string;
-  role: string;
-  email?: string;
-  phone?: string;
-  image_url?: string;
-  description?: string;
-}
-
 interface DataState {
   services: Service[];
   projects: Project[];
   materials: Material[];
-  customers: Customer[];
-  team: TeamMember[];
 
   isLoading: boolean;
   error: string | null;
@@ -69,21 +49,12 @@ interface DataState {
   addMaterial: (material: Omit<Material, "id">) => Promise<void>;
   updateMaterial: (id: string, material: Partial<Material>) => Promise<void>;
   deleteMaterial: (id: string) => Promise<void>;
-
-  addCustomer: (customer: Omit<Customer, "id">) => Promise<void>;
-  updateCustomer: (id: string, customer: Partial<Customer>) => Promise<void>;
-  deleteCustomer: (id: string) => Promise<void>;
-
-  addTeamMember: (member: Omit<TeamMember, "id">) => Promise<void>;
-  deleteTeamMember: (id: string) => Promise<void>;
 }
 
 export const useDataStore = create<DataState>()((set, get) => ({
   services: [],
   projects: [],
   materials: [],
-  customers: [],
-  team: [],
   isLoading: false,
   error: null,
 
@@ -91,12 +62,10 @@ export const useDataStore = create<DataState>()((set, get) => ({
     set({ isLoading: true, error: null });
 
     try {
-      const [servicesRes, projectsRes, materialsRes, customersRes, teamRes] = await Promise.allSettled([
+      const [servicesRes, projectsRes, materialsRes] = await Promise.allSettled([
         api.get("/services"),
         api.get("/projects"),
         api.get("/materials"),
-        api.get("/customers"),
-        api.get("/team"),
       ]);
 
       const updates: Partial<DataState> = {};
@@ -135,34 +104,6 @@ export const useDataStore = create<DataState>()((set, get) => ({
             unit: m.unit || "unit",
             status: parseFloat(m.quantity) <= parseFloat(m.min_stock_level || "10") ? "low" : "healthy",
             description: m.description,
-          }));
-        }
-      }
-
-      if (customersRes.status === "fulfilled" && customersRes.value.data.success) {
-        const rawCustomers = Array.isArray(customersRes.value.data.data) ? customersRes.value.data.data : customersRes.value.data.data.items;
-        if (rawCustomers) {
-          updates.customers = rawCustomers.map((c: any) => ({
-            id: c.id,
-            name: c.name,
-            email: c.email || "",
-            phone: c.phone || "",
-            companyName: c.company_name || "",
-          }));
-        }
-      }
-
-      if (teamRes.status === "fulfilled" && teamRes.value.data.success) {
-        const rawTeam = Array.isArray(teamRes.value.data.data) ? teamRes.value.data.data : teamRes.value.data.data.items;
-        if (rawTeam) {
-          updates.team = rawTeam.map((t: any) => ({
-            id: t.id,
-            name: t.name,
-            role: t.role,
-            email: t.email,
-            phone: t.phone,
-            image_url: t.image_url,
-            description: t.description,
           }));
         }
       }
@@ -251,40 +192,6 @@ export const useDataStore = create<DataState>()((set, get) => ({
   },
   deleteMaterial: async (id) => {
     await api.delete(`/materials/${id}`);
-    await get().fetchAll();
-  },
-
-  addCustomer: async (customer) => {
-    const payload = {
-      name: customer.name,
-      email: customer.email,
-      phone: customer.phone,
-      company_name: customer.companyName,
-      customer_code: `CUST-${Math.floor(Math.random() * 10000)}`
-    };
-    await api.post("/customers", payload);
-    await get().fetchAll();
-  },
-  updateCustomer: async (id, customer) => {
-    const payload: any = {};
-    if (customer.name) payload.name = customer.name;
-    if (customer.email) payload.email = customer.email;
-    if (customer.phone) payload.phone = customer.phone;
-    if (customer.companyName) payload.company_name = customer.companyName;
-    await api.put(`/customers/${id}`, payload);
-    await get().fetchAll();
-  },
-  deleteCustomer: async (id) => {
-    await api.delete(`/customers/${id}`);
-    await get().fetchAll();
-  },
-
-  addTeamMember: async (member) => {
-    await api.post("/team", member);
-    await get().fetchAll();
-  },
-  deleteTeamMember: async (id) => {
-    await api.delete(`/team/${id}`);
     await get().fetchAll();
   },
 }));

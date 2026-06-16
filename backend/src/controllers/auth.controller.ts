@@ -74,12 +74,11 @@ export const register = asyncHandler(async (req: Request, res: Response) => {
   }
 
   const passwordHash = await bcrypt.hash(password, 12);
-  const allowedRoles = ['customer', 'supplier'];
-  const userRole = allowedRoles.includes(role) ? role : 'customer';
+  const userRole = 'user'; // all registrations are standard users
 
   const result = await query<User>(
     `INSERT INTO users (email, password_hash, first_name, last_name, phone, role, is_verified)
-     VALUES ($1, $2, $3, $4, $5, $6, false)
+     VALUES ($1, $2, $3, $4, $5, $6, true)
      RETURNING *`,
     [email.toLowerCase(), passwordHash, first_name, last_name ?? null, phone ?? null, userRole]
   );
