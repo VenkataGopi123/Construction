@@ -45,3 +45,5 @@
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
     at query (c:\Users\gopiv\Downloads\construction-erp\backend\src\config\database.ts:36:20)
     at <anonymous> (c:\Users\gopiv\Downloads\construction-erp\backend\src\controllers\materials.controller.ts:30:18) {"error":"relation \"suppliers\" does not exist"}
+2026-06-16 13:07:47 [error]: Database query error {"query":"SELECT NOW()","error":""}
+2026-06-16 13:07:47 [error]: Database connection failed {"error":""}

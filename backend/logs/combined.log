@@ -215,3 +215,10 @@
 2026-06-15 12:59:36 [debug]: New database client connected
 2026-06-15 12:59:36 [info]: Database connection established
 2026-06-15 12:59:36 [info]: BuildMaster ERP API running on port 5000 {"environment":"development","port":5000}
+2026-06-16 13:07:47 [error]: Database query error {"query":"SELECT NOW()","error":""}
+2026-06-16 13:07:47 [error]: Database connection failed {"error":""}
+2026-06-16 13:07:47 [warn]: Starting server without database connection
+2026-06-16 13:07:47 [info]: BuildMaster ERP API running on port 5000 {"environment":"development","port":5000}
+2026-06-16 13:09:30 [debug]: New database client connected
+2026-06-16 13:09:30 [info]: Database connection established
+2026-06-16 13:09:30 [info]: BuildMaster ERP API running on port 5000 {"environment":"development","port":5000}
