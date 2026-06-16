@@ -222,3 +222,16 @@
 2026-06-16 13:09:30 [debug]: New database client connected
 2026-06-16 13:09:30 [info]: Database connection established
 2026-06-16 13:09:30 [info]: BuildMaster ERP API running on port 5000 {"environment":"development","port":5000}
+2026-06-16 14:22:09 [debug]: New database client connected
+2026-06-16 14:22:09 [info]: Database connection established
+2026-06-16 14:22:09 [info]: BuildMaster ERP API running on port 5000 {"environment":"development","port":5000}
+2026-06-16 14:35:28 [debug]: New database client connected
+2026-06-16 14:35:28 [info]: Database connection established
+2026-06-16 14:35:28 [info]: Database connected, running initialization...
+2026-06-16 14:35:28 [info]: Starting database initialization...
+2026-06-16 14:35:28 [info]: Reading schema from C:\Users\gopiv\Downloads\construction-erp\database\schema.sql
+2026-06-16 14:35:28 [info]: Executing schema.sql...
+2026-06-16 14:35:28 [info]: Schema applied successfully.
+2026-06-16 14:35:28 [info]: Database already seeded, skipping seed.sql execution.
+2026-06-16 14:35:29 [info]: Updating admin@harshithram.com password to admin123 just in case
+2026-06-16 14:35:29 [info]: BuildMaster ERP API running on port 5000 {"environment":"development","port":5000}

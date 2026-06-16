@@ -4,7 +4,7 @@ import bcrypt from 'bcryptjs';
 import { pool, query } from '../config/database';
 import { logger } from '../utils/logger';
 
-async function initDB(): Promise<void> {
+export async function initDB(): Promise<void> {
   logger.info('Starting database initialization...');
 
   try {
@@ -48,10 +48,11 @@ async function initDB(): Promise<void> {
 
   } catch (error) {
     logger.error('Init failed', { error: error instanceof Error ? error.message : String(error) });
-    process.exit(1);
-  } finally {
-    await pool.end();
+    // Don't exit process, just log error so server can still try to start
   }
 }
 
-initDB();
+// Allow direct execution if run via tsx src/scripts/init-db.ts
+if (require.main === module) {
+  initDB().then(() => pool.end()).catch(() => process.exit(1));
+}

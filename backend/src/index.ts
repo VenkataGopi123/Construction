@@ -2,11 +2,15 @@ import app from './app';
 import { env } from './config/env';
 import { testConnection, pool } from './config/database';
 import { logger } from './utils/logger';
+import { initDB } from './scripts/init-db';
 
 async function startServer(): Promise<void> {
   const dbConnected = await testConnection();
   if (!dbConnected) {
     logger.warn('Starting server without database connection');
+  } else {
+    logger.info('Database connected, running initialization...');
+    await initDB();
   }
 
   const server = app.listen(env.port, () => {
