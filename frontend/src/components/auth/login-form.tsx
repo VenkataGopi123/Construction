@@ -33,10 +33,10 @@ export function LoginForm() {
       await login(data.email, data.password);
       addToast({ title: "Welcome back!", variant: "success" });
       const user = useAuthStore.getState().user;
-      if (user?.role === 'customer') {
-        router.push("/");
-      } else {
+      if (user?.role === 'admin') {
         router.push("/dashboard");
+      } else {
+        router.push("/");
       }
     } catch {
       addToast({ title: "Login failed", description: "Invalid email or password.", variant: "error" });
