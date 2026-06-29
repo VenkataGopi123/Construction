@@ -21,3 +21,8 @@ INSERT INTO services (name, description, category, base_price, is_active) VALUES
 ('Structural Engineering', 'Expert structural analysis and engineering design ensuring safety and durability.', 'Engineering', 75000.00, true),
 ('Interior Design', 'Creative and functional interior design solutions for modern living spaces.', 'Design', 40000.00, true),
 ('General Contracting', 'Full-service construction and project management from foundation to finish.', 'Construction', 0.00, true);
+
+INSERT INTO company_team (name, role, email) VALUES
+('Gopi', 'Owner', 'owner@buildmaster.com'),
+('Alice', 'Accountant', 'accountant@buildmaster.com'),
+('Bob', 'Tech Head', 'tech@buildmaster.com');

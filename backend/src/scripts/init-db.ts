@@ -1,28 +1,19 @@
-import fs from 'fs';
-import path from 'path';
 import bcrypt from 'bcryptjs';
 import { pool, query } from '../config/database';
 import { logger } from '../utils/logger';
+import { schemaSql } from './schema-sql';
+import { seedSql } from './seed-sql';
 
 export async function initDB(): Promise<void> {
   logger.info('Starting database initialization...');
 
   try {
-    const schemaPath = path.resolve(__dirname, '../../../database/schema.sql');
-    const seedPath = path.resolve(__dirname, '../../../database/seed.sql');
-
-    logger.info(`Reading schema from ${schemaPath}`);
-    const schemaSql = fs.readFileSync(schemaPath, 'utf8');
-
     logger.info('Executing schema.sql...');
     await query(schemaSql);
     logger.info('Schema applied successfully.');
 
     const usersCount = await query('SELECT count(*) FROM users');
     if (parseInt(usersCount.rows[0].count) === 0) {
-      logger.info(`Reading seed from ${seedPath}`);
-      const seedSql = fs.readFileSync(seedPath, 'utf8');
-
       logger.info('Executing seed.sql...');
       await query(seedSql);
       logger.info('Seed applied successfully.');

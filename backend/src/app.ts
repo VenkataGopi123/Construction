@@ -14,6 +14,8 @@ import { logger } from './utils/logger';
 
 const app = express();
 
+app.set('trust proxy', 1);
+
 const logsDir = path.resolve('logs');
 const uploadsDir = path.resolve(env.upload.uploadDir);
 [logsDir, uploadsDir].forEach((dir) => {

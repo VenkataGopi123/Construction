@@ -111,6 +111,22 @@ CREATE TABLE IF NOT EXISTS services (
 );
 
 -- ============================================================
+-- TEAM MEMBERS
+-- ============================================================
+
+CREATE TABLE IF NOT EXISTS company_team (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  name VARCHAR(255) NOT NULL,
+  role VARCHAR(100) NOT NULL,
+  email VARCHAR(255),
+  phone VARCHAR(20),
+  image_url TEXT,
+  description TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- ============================================================
 -- TRIGGERS: updated_at
 -- ============================================================
 
@@ -133,3 +149,6 @@ CREATE TRIGGER tr_materials_updated BEFORE UPDATE ON materials FOR EACH ROW EXEC
 
 DROP TRIGGER IF EXISTS tr_services_updated ON services;
 CREATE TRIGGER tr_services_updated BEFORE UPDATE ON services FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+DROP TRIGGER IF EXISTS tr_company_team_updated ON company_team;
+CREATE TRIGGER tr_company_team_updated BEFORE UPDATE ON company_team FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
